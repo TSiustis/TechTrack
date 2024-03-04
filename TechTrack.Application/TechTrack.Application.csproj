@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Equipment\Commands\DeleteEquipment\" />
     <Folder Include="Equipment\Queries\" />
   </ItemGroup>
 

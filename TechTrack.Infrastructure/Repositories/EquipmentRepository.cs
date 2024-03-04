@@ -20,7 +20,7 @@ namespace TechTrack.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var equipment = _context.Equipments.FirstOrDefault(a => a.Id == id);
             if (equipment != null)
@@ -37,7 +37,7 @@ namespace TechTrack.Infrastructure.Repositories
 
         }
 
-        public async Task<Equipment> GetByIdAsync(int id)
+        public async Task<Equipment> GetByIdAsync(Guid id)
         {
             var equipment = await _context.Equipments.FirstOrDefaultAsync(e => e.Id == id);
 
