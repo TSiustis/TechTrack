@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Blazor", "TechTrack\TechTrack\TechTrack.Blazor.csproj", "{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Blazor", "TechTrack\TechTrack\TechTrack.Blazor.csproj", "{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Blazor.Client", "TechTrack\TechTrack.Client\TechTrack.Blazor.Client.csproj", "{3385CA14-1088-4BF0-8947-48FB64E90B32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Blazor.Client", "TechTrack\TechTrack.Client\TechTrack.Blazor.Client.csproj", "{3385CA14-1088-4BF0-8947-48FB64E90B32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Domain", "TechTrack.Domain\TechTrack.Domain.csproj", "{8DA605F8-F984-407E-92CE-23DC389C45C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Domain", "TechTrack.Domain\TechTrack.Domain.csproj", "{8DA605F8-F984-407E-92CE-23DC389C45C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Infrastructure", "TechTrack.Infrastructure\TechTrack.Infrastructure.csproj", "{B97D68E6-2361-477A-A4CA-A3DDDF48D70A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Infrastructure", "TechTrack.Infrastructure\TechTrack.Infrastructure.csproj", "{B97D68E6-2361-477A-A4CA-A3DDDF48D70A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Application", "TechTrack.Application\TechTrack.Application.csproj", "{DE8E1D3F-2D02-4B8A-B9CC-C7666445443F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Application", "TechTrack.Application\TechTrack.Application.csproj", "{DE8E1D3F-2D02-4B8A-B9CC-C7666445443F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Api", "TechTrack.Api\TechTrack.Api.csproj", "{74A0EDF2-230A-4855-AD37-5DA9BF5E57E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Api", "TechTrack.Api\TechTrack.Api.csproj", "{74A0EDF2-230A-4855-AD37-5DA9BF5E57E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Persistence", "TechTrack.Persistence\TechTrack.Persistence.csproj", "{CA232B33-B2A3-4D63-BDF0-4162B5B8BFCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{74A0EDF2-230A-4855-AD37-5DA9BF5E57E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74A0EDF2-230A-4855-AD37-5DA9BF5E57E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74A0EDF2-230A-4855-AD37-5DA9BF5E57E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA232B33-B2A3-4D63-BDF0-4162B5B8BFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA232B33-B2A3-4D63-BDF0-4162B5B8BFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA232B33-B2A3-4D63-BDF0-4162B5B8BFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA232B33-B2A3-4D63-BDF0-4162B5B8BFCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

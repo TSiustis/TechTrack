@@ -9,7 +9,7 @@ using System.Security.Claims;
 using TechTrack.Client;
 using TechTrack.Data;
 
-namespace TechTrack.Components.Account
+namespace TechTrack.Blazor.Components.Account
 {
     // This is a server-side AuthenticationStateProvider that revalidates the security stamp for the connected user
     // every 30 minutes an interactive circuit is connected. It also uses PersistentComponentState to flow the

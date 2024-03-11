@@ -1,9 +1,10 @@
 ﻿using TechTrack.Domain.Enums;
 
-namespace TechTrack.Application.Dtos.Equipment
+namespace TechTrack.Application.Equipments.ViewModels
 {
-    public class EquipmentForCreationDto
+    public class EquipmentInputVm
     {
+        public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? Type { get; set; }
         public string? SerialNumber { get; set; }

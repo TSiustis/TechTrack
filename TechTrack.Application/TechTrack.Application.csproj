@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Equipment\Queries\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

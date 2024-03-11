@@ -1,8 +1,9 @@
-﻿using TechTrack.Domain.Enums;
+﻿using MediatR;
+using TechTrack.Domain.Enums;
 
-namespace TechTrack.Application.Dtos.Equipment
+namespace TechTrack.Application.Equipments.Commands.CreateEquipment
 {
-    public class EquipmentForCreationDto
+    public class CreateEquipmentCommand : IRequest
     {
         public string? Name { get; set; }
         public string? Type { get; set; }

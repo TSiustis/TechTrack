@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TechTrack.Client.Pages;
-using TechTrack.Components;
-using TechTrack.Components.Account;
+using TechTrack.Blazor.Client.Pages;
+using TechTrack.Blazor.Components;
+using TechTrack.Blazor.Components.Account;
 using TechTrack.Data;
 
 var builder = WebApplication.CreateBuilder(args);

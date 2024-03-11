@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using TechTrack.Data;
 
-namespace TechTrack.Components.Account
+namespace TechTrack.Blazor.Components.Account
 {
     internal sealed class IdentityUserAccessor(UserManager<ApplicationUser> userManager, IdentityRedirectManager redirectManager)
     {
