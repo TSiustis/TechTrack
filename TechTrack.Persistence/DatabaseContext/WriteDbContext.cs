@@ -6,7 +6,7 @@ namespace TechTrack.Persistence.DatabaseContext
 {
     public class WriteDbContext : DbContext
     {
-        public WriteDbContext(DbContextOptions<ReadDbContext> options) : base(options)
+        public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
         {
 
         }

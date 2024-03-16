@@ -1,28 +1,24 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using TechTrack.Application.Interfaces.Equipments;
+using TechTrack.Domain.Models;
 
 namespace TechTrack.Application.Equipments.Commands.CreateEquipment
 {
     public class CreateEquipmentCommandHandler : IRequestHandler<CreateEquipmentCommand>
     {
         private readonly IEquipmentWriteRepository _equipmentRepository;
+        private readonly IMapper _mapper;
 
-        public CreateEquipmentCommandHandler(IEquipmentWriteRepository equipmentRepository)
+        public CreateEquipmentCommandHandler(IEquipmentWriteRepository equipmentRepository, IMapper mapper)
         {
             _equipmentRepository = equipmentRepository;
+            _mapper = mapper;
         }
 
         public Task Handle(CreateEquipmentCommand request, CancellationToken cancellationToken)
         {
-            var equipment = new TechTrack.Domain.Models.Equipment
-            {
-                Name = request.Name,
-                SerialNumber = request.SerialNumber,
-                AssignmentDate = DateTime.UtcNow,
-                Type = request.Type,
-                Status = request.Status,
-                AssignedToUserId = request.AssignedToUserId,
-            };
+            var equipment = _mapper.Map<Equipment>(request.EquipmentForCreationDto);
 
             _equipmentRepository.Add(equipment);
 

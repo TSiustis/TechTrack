@@ -4,6 +4,11 @@ namespace TechTrack.Application.Equipments.Commands.DeleteEquipment
 {
     public class DeleteEquipmentCommand : IRequest
     {
-        public Guid Id { get; set; }
+        public DeleteEquipmentCommand(Guid id)
+        {
+            Id = id;
+        }
+
+        public Guid Id { get; }
     }
 }

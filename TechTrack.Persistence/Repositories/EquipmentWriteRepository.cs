@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;
 using TechTrack.Persistence.DatabaseContext;
@@ -31,6 +26,13 @@ namespace TechTrack.Persistence.Repositories
             {
                 _context.Equipments.Remove(equipment);
             }
+        }
+
+        public Task<Equipment> GetEquipmentAsync(Guid id, CancellationToken cancellationToken)
+        {
+            var equipment = _context.Equipments.FirstOrDefaultAsync(equipment => equipment.Id == id, cancellationToken);
+
+            return equipment;
         }
 
         public void Update(Equipment equipment)

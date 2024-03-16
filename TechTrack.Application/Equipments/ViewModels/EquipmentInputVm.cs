@@ -1,8 +1,9 @@
-﻿using TechTrack.Domain.Enums;
+﻿using TechTrack.Application.Common.Pagination;
+using TechTrack.Domain.Enums;
 
 namespace TechTrack.Application.Equipments.ViewModels
 {
-    public class EquipmentInputVm
+    public class EquipmentInputVm : PaginationFilter
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }

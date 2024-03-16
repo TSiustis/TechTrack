@@ -1,31 +1,28 @@
 ﻿using FluentValidation;
+using TechTrack.Application.Interfaces.Equipments;
 
 namespace TechTrack.Application.Equipments.Commands.UpdateEquipment
 {
     public class UpdateEquipmentCommandValidator : AbstractValidator<UpdateEquipmentCommand>
     {
-        public UpdateEquipmentCommandValidator()
+        private readonly IEquipmentReadRepository _equipmentReadRepository;
+
+        
+        public UpdateEquipmentCommandValidator(IEquipmentReadRepository equipmentReadRepository)
         {
+            _equipmentReadRepository = equipmentReadRepository;
+
             RuleFor(command => command.Id)
-                .NotEmpty();
-
-            RuleFor(command => command.AssignedToUserId)
-                .GreaterThan(0);
-
-            RuleFor(command => command.ReturnDate)
-                .NotEmpty();
-
-            RuleFor(command => command.Name)
                 .NotEmpty()
-                .MaximumLength(500);
+                .MustAsync(EquipmentExists)
+                .WithMessage(command => $"Equipment with ID {command.Id} does not exist.");
+        }
 
-            RuleFor(command => command.SerialNumber)
-                .NotEmpty()
-                .MaximumLength(24);
+        private async Task<bool> EquipmentExists(Guid id, CancellationToken cancellationToken)
+        {
+            var equipment = await _equipmentReadRepository.GetByIdAsync(id, cancellationToken);
 
-            RuleFor(command => command.Type)
-                .NotEmpty()
-                .MaximumLength(50);
+            return equipment is not null;
         }
     }
 }

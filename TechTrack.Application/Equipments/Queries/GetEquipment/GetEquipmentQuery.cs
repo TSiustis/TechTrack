@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using TechTrack.Application.Dtos.Equipment;
+using TechTrack.Application.Equipments.Dtos;
 
 namespace TechTrack.Application.Equipments.Queries.GetEquipment
 {

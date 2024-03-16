@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using TechTrack.Application.Dtos.Equipment;
+using TechTrack.Application.Equipments.Dtos;
 using TechTrack.Domain.Models;
 
 namespace TechTrack.Application
@@ -9,6 +9,8 @@ namespace TechTrack.Application
         public MappingProfile()
         {
             CreateMap<Equipment, EquipmentDto>();
+            CreateMap<EquipmentForCreationDto, Equipment>();
+            CreateMap<EquipmentForUpdateDto, Equipment>();
         }
     }
 }

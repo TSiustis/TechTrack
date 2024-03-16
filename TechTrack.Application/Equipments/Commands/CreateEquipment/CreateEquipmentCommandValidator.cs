@@ -6,21 +6,26 @@ namespace TechTrack.Application.Equipments.Commands.CreateEquipment
     {
         public CreateEquipmentCommandValidator()
         {
-            RuleFor(command => command.AssignedToUserId)
+            RuleFor(command => command.EquipmentForCreationDto.
+            AssignedToUserId)
                 .GreaterThan(0);
 
-            RuleFor(command => command.ReturnDate)
+            RuleFor(command => command.EquipmentForCreationDto.
+            ReturnDate)
                 .NotEmpty();
 
-            RuleFor(command => command.Name)
+            RuleFor(command => command.EquipmentForCreationDto.
+            Name)
                 .NotEmpty()
                 .MaximumLength(500);
 
-            RuleFor(command => command.SerialNumber)
+            RuleFor(command => command.EquipmentForCreationDto.
+            SerialNumber)
                 .NotEmpty()
                 .MaximumLength(24);
 
-            RuleFor(command => command.Type)
+            RuleFor(command => command.EquipmentForCreationDto.
+            Type)
                 .NotEmpty()
                 .MaximumLength(50);
         }

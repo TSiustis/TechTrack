@@ -1,6 +1,6 @@
 ﻿using TechTrack.Domain.Enums;
 
-namespace TechTrack.Application.Dtos.Equipment
+namespace TechTrack.Application.Equipments.Dtos
 {
     public class EquipmentForUpdateDto
     {

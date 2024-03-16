@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using TechTrack.Application.Dtos.Equipment;
+using TechTrack.Application.Equipments.Dtos;
 using TechTrack.Application.Interfaces.Equipments;
 
 namespace TechTrack.Application.Equipments.Queries.GetEquipment
@@ -18,7 +18,7 @@ namespace TechTrack.Application.Equipments.Queries.GetEquipment
 
         public async Task<EquipmentDto> Handle(GetEquipmentQuery request, CancellationToken cancellationToken)
         {
-            var equipment = await _equipmentRepository.GetByIdAsync(request.Id);
+            var equipment = await _equipmentRepository.GetByIdAsync(request.Id, cancellationToken);
 
             return _mapper.Map<EquipmentDto>(equipment);
         }

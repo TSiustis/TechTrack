@@ -12,11 +12,16 @@ namespace TechTrack.Application.Equipments.Commands.DeleteEquipment
             _equipmentRepository = equipmentRepository;
         }
 
-        public Task Handle(DeleteEquipmentCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteEquipmentCommand request, CancellationToken cancellationToken)
         {
-            _equipmentRepository.Delete(request.Id);
+            var equipment = await _equipmentRepository.GetEquipmentAsync(request.Id, cancellationToken);
 
-            return Task.CompletedTask;
+            if(equipment is null)
+            {
+                throw new KeyNotFoundException($"Equipment with ID {request.Id} does not exist.");
+            }
+
+            _equipmentRepository.Delete(request.Id);
         }
     }
 }
