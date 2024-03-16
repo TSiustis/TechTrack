@@ -1,5 +1,4 @@
 ﻿using TechTrack.Domain.Enums;
-using TechTrack.Domain.Models;
 
 namespace TechTrack.Application.Dtos.Equipment
 {
