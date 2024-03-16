@@ -35,6 +35,11 @@ namespace TechTrack.Persistence.Repositories
             return equipment;
         }
 
+        public async Task SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            await _context.SaveChangesAsync(cancellationToken);
+        }
+
         public void Update(Equipment equipment)
         {
             _context.Equipments.Update(equipment);

@@ -22,6 +22,8 @@ namespace TechTrack.Application.Equipments.Commands.DeleteEquipment
             }
 
             _equipmentRepository.Delete(request.Id);
+
+            await _equipmentRepository.SaveChangesAsync(cancellationToken);
         }
     }
 }

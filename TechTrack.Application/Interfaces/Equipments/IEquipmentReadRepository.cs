@@ -9,5 +9,6 @@ namespace TechTrack.Application.Interfaces.Equipments
         Task<PaginatedResult<EquipmentDto>> FilterEquipmentsAsync(EquipmentFilterDto filter,
             CancellationToken cancellationToken);
         Task<Equipment> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+        Task SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

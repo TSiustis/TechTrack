@@ -8,5 +8,6 @@ namespace TechTrack.Application.Interfaces.Equipments
         void Add(Equipment equipment);
         void Update(Equipment equipment);
         void Delete(Guid id);
+        Task SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

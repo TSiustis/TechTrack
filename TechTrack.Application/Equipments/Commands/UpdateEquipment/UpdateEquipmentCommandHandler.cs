@@ -29,6 +29,8 @@ namespace TechTrack.Application.Equipments.Commands.UpdateEquipment
             _mapper.Map(request.Equipment, equipment);
 
             _equipmentRepository.Update(equipment);
+
+            await _equipmentRepository.SaveChangesAsync(cancellationToken);
         }
     }
 }

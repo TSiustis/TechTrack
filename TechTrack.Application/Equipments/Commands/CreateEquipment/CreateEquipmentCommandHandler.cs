@@ -16,13 +16,13 @@ namespace TechTrack.Application.Equipments.Commands.CreateEquipment
             _mapper = mapper;
         }
 
-        public Task Handle(CreateEquipmentCommand request, CancellationToken cancellationToken)
+        public async Task Handle(CreateEquipmentCommand request, CancellationToken cancellationToken)
         {
             var equipment = _mapper.Map<Equipment>(request.EquipmentForCreationDto);
 
             _equipmentRepository.Add(equipment);
 
-            return Task.CompletedTask;
+            await _equipmentRepository.SaveChangesAsync(cancellationToken);
         }
     }
 }
