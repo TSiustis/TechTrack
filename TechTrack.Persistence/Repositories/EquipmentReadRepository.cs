@@ -61,6 +61,25 @@ namespace TechTrack.Persistence.Repositories
             return equipment;
         }
 
+        public void Add(Equipment equipment)
+        {
+            _context.Equipments.Add(equipment);
+        }
+
+        public void Delete(Guid id)
+        {
+            var equipment = _context.Equipments.FirstOrDefault(a => a.Id == id);
+            if (equipment != null)
+            {
+                _context.Equipments.Remove(equipment);
+            }
+        }
+
+        public void Update(Equipment equipment)
+        {
+            _context.Equipments.Update(equipment);
+        }
+
         public async Task SaveChangesAsync(CancellationToken cancellationToken)
         {
             await _context.SaveChangesAsync(cancellationToken);
