@@ -13,8 +13,7 @@ namespace TechTrack.Application.Equipments.ViewModels
         public DateTime? AssignmentDate { get; set; }
         public DateTime? ReturnDate { get; set; }
         public int? AssignedToUserId { get; set; }
-        public string SortBy { get; set; }
-
-        public string SortDirection { get; set; }
+        public string? SortBy { get; set; }
+        public string? SortDirection { get; set; }
     }
 }

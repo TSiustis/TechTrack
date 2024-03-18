@@ -22,4 +22,4 @@ public class DomainEventService : IDomainEventService
         return (INotification)Activator.CreateInstance(
             typeof(DomainEventNotification<>).MakeGenericType(domainEvent.GetType()), domainEvent);
     }
-}
+}   

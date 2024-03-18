@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using TechTrack.Application.Events;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;
 
@@ -19,6 +20,8 @@ namespace TechTrack.Application.Equipments.Commands.CreateEquipment
         public async Task Handle(CreateEquipmentCommand request, CancellationToken cancellationToken)
         {
             var equipment = _mapper.Map<Equipment>(request.EquipmentForCreationDto);
+
+            equipment.DomainEvents.Add(new EquipmentCreated(equipment));
 
             _equipmentRepository.Add(equipment);
 

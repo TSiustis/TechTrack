@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TechTrack.Application.Common.Interfaces;
+using TechTrack.Domain.Common;
 using TechTrack.Domain.Common.Interfaces;
 using TechTrack.Domain.Models;
 using TechTrack.Persistence.Configurations;
@@ -36,7 +37,7 @@ namespace TechTrack.Persistence.DatabaseContext
         }
 
         private async Task DispatchEvents(CancellationToken cancellationToken)
-        {
+            {
             var domainEventEntities = ChangeTracker.Entries<IHasDomainEvent>()
                 .SelectMany(entity => entity.Entity.DomainEvents)
                 .ToArray();

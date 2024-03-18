@@ -2,9 +2,9 @@
 
 namespace TechTrack.Application.Events
 {
-    public class EquipmentDeleted : DomainEvent
+    public class EquipmentRetired : DomainEvent
     {
-        public EquipmentDeleted(Guid id)
+        public EquipmentRetired(Guid id)
         {
             Id = id;
         }

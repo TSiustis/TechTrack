@@ -2,9 +2,9 @@
 
 namespace TechTrack.Application.Equipments.Commands.DeleteEquipment
 {
-    public class DeleteEquipmentCommandValidator : AbstractValidator<DeleteEquipmentCommand>
+    public class RetireEquipmentCommandValidator : AbstractValidator<RetireEquipmentCommand>
     {
-        public DeleteEquipmentCommandValidator()
+        public RetireEquipmentCommandValidator()
         {
             RuleFor(command => command.Id)
                 .NotNull()

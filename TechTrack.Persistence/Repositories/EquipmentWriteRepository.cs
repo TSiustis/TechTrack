@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TechTrack.Application.Interfaces.Equipments;
+using TechTrack.Domain.Enums;
 using TechTrack.Domain.Models;
 using TechTrack.Persistence.DatabaseContext;
 
@@ -19,13 +20,10 @@ namespace TechTrack.Persistence.Repositories
             _context.Equipments.Add(equipment);
         }
 
-        public void Delete(Guid id)
+        public void Retire(Guid id)
         {
-            var equipment = _context.Equipments.FirstOrDefault(a => a.Id == id);
-            if (equipment != null)
-            {
-                _context.Equipments.Remove(equipment);
-            }
+            var equipment = _context.Equipments.Find(id);
+            equipment.Status = EquipmentStatus.Retired;
         }
 
         public Task<Equipment> GetEquipmentAsync(Guid id, CancellationToken cancellationToken)

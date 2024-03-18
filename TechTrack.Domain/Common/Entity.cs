@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using TechTrack.Domain.Common.Interfaces;
 
 namespace TechTrack.Domain.Common
 {
-    public class Entity
+    public class Entity : IHasDomainEvent
     {
         int? _requestedHashCode;
         int _Id;

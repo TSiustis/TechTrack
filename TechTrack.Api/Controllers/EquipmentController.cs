@@ -78,16 +78,16 @@ namespace TechTrack.Api.Controllers
         }
 
         /// <summary>
-        /// Deletes an equipment for a specified id.
+        /// Retires an equipment for a specified id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>204 No content.</returns>
-        [HttpDelete("equipments/{id:Guid}")]
+        [HttpPut("equipments/{id:Guid}/retire")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> DeleteEquipmentAsync(Guid id)
+        public async Task<IActionResult> RetireEquipmentAsync(Guid id)
         {
-            await Mediator.Send(new DeleteEquipmentCommand(id));
+            await Mediator.Send(new RetireEquipmentCommand(id));
 
             return NoContent();
         }

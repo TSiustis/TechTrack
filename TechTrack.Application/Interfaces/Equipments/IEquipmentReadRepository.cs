@@ -11,7 +11,7 @@ namespace TechTrack.Application.Interfaces.Equipments
         Task<Equipment> GetByIdAsync(Guid id, CancellationToken cancellationToken);
         void Add(Equipment equipment);
         void Update(Equipment equipment);
-        void Delete(Guid id);
+        void Retire(Guid id);
         Task SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

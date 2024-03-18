@@ -6,11 +6,10 @@ using TechTrack.Application;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Persistence.DatabaseContext;
 using TechTrack.Persistence.Repositories;
-using TechTrack.Application.Equipments.Queries.GetEquipment;
-using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
-using System.Net.NetworkInformation;
 using TechTrack.Application.Equipments.Queries.GetEquipments;
+using TechTrack.Application.Common.Interfaces;
+using TechTrack.Application.Events;
+using System.Text.Json.Serialization;
 
 public class Program
 {
@@ -28,13 +27,18 @@ public class Program
         builder.Services.AddScoped<IEquipmentWriteRepository, EquipmentWriteRepository>();
 
         builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
-        builder.Services.AddControllers();
+        builder.Services.AddControllers()
+            .AddJsonOptions(options => 
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
         builder.Services.AddMediatR(cfg =>
      cfg.RegisterServicesFromAssembly(typeof(GetEquipmentsQuery).Assembly));
+        builder.Services.AddScoped<IDomainEventService, DomainEventService>();
         builder.Services.AddApiVersioning();
 
         var app = builder.Build();

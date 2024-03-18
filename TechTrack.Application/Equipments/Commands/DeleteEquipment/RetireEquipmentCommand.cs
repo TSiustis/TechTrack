@@ -2,9 +2,9 @@
 
 namespace TechTrack.Application.Equipments.Commands.DeleteEquipment
 {
-    public class DeleteEquipmentCommand : IRequest
+    public class RetireEquipmentCommand : IRequest
     {
-        public DeleteEquipmentCommand(Guid id)
+        public RetireEquipmentCommand(Guid id)
         {
             Id = id;
         }
