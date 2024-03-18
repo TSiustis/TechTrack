@@ -4,19 +4,18 @@ using TechTrack.Application.Interfaces.Equipments;
 
 namespace TechTrack.Application.EventHandlers
 {
-    public class EquipmentCreatedEventHandler :
-            INotificationHandler<DomainEventNotification<EquipmentCreated>>
+    public class EquipmentUpdatedEventHandler : INotificationHandler<DomainEventNotification<EquipmentUpdated>>
     {
         private readonly IEquipmentReadRepository _equipmentReadRepository;
 
-        public EquipmentCreatedEventHandler(IEquipmentReadRepository equipmentReadRepository)
+        public EquipmentUpdatedEventHandler(IEquipmentReadRepository equipmentReadRepository)
         {
             _equipmentReadRepository = equipmentReadRepository;
         }
 
-        public async Task Handle(DomainEventNotification<EquipmentCreated> notification, CancellationToken cancellationToken)
+        public async Task Handle(DomainEventNotification<EquipmentUpdated> notification, CancellationToken cancellationToken)
         {
-            _equipmentReadRepository.Add(notification.DomainEvent.Equipment);
+            _equipmentReadRepository.Update(notification.DomainEvent.Equipment);
             await _equipmentReadRepository.SaveChangesAsync(cancellationToken);
         }
     }
