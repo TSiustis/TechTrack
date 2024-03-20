@@ -17,6 +17,7 @@ namespace TechTrack.Application.Equipments.Queries.GetEquipments
     {
         private readonly IEquipmentReadRepository _equipmentReadRepository;
         private readonly IMapper _mapper;
+
         public GetEquipmentsQueryHandler(IEquipmentReadRepository equipmentReadRepository, IMapper mapper)
         {
             _equipmentReadRepository = equipmentReadRepository;
