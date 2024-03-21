@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TechTrack.Application\TechTrack.Application.csproj" />
   </ItemGroup>
 

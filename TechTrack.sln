@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{668BFFC9-DCA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C012A772-44DC-4581-A799-4DB77FE3599B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.UnitTests", "TechTrack.UnitTests\TechTrack.UnitTests.csproj", "{2C706088-E299-4A63-AC5E-99CDFBFD3036}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.UnitTests", "TechTrack.UnitTests\TechTrack.UnitTests.csproj", "{2C706088-E299-4A63-AC5E-99CDFBFD3036}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
