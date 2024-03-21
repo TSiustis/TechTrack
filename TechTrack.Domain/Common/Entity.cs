@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using TechTrack.Domain.Common.Interfaces;
 
 namespace TechTrack.Domain.Common
 {
-    public class Entity
+    public class Entity : IHasDomainEvent
     {
         int? _requestedHashCode;
         int _Id;
@@ -22,7 +19,7 @@ namespace TechTrack.Domain.Common
 
         public bool IsTransient()
         {
-            return this.Id == default(Int32);
+            return this.Id == default(int);
         }
 
         public override bool Equals(object obj)
@@ -59,8 +56,8 @@ namespace TechTrack.Domain.Common
         }
         public static bool operator ==(Entity left, Entity right)
         {
-            if (Object.Equals(left, null))
-                return (Object.Equals(right, null)) ? true : false;
+            if (Equals(left, null))
+                return (Equals(right, null)) ? true : false;
             else
                 return left.Equals(right);
         }
@@ -69,5 +66,5 @@ namespace TechTrack.Domain.Common
         {
             return !(left == right);
         }
-    }s
+    }
 }

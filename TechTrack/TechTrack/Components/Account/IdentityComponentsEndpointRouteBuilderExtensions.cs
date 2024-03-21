@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using System.Security.Claims;
 using System.Text.Json;
-using TechTrack.Components.Account.Pages;
-using TechTrack.Components.Account.Pages.Manage;
+using TechTrack.Blazor.Components.Account.Pages;
+using TechTrack.Blazor.Components.Account.Pages.Manage;
 using TechTrack.Data;
 
 namespace Microsoft.AspNetCore.Routing

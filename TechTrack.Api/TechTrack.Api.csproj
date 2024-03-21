@@ -4,16 +4,18 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TechTrack.Application\TechTrack.Application.csproj" />
     <ProjectReference Include="..\TechTrack.Infrastructure\TechTrack.Infrastructure.csproj" />
+    <ProjectReference Include="..\TechTrack.Persistence\TechTrack.Persistence.csproj" />
     <ProjectReference Include="..\TechTrack\TechTrack\TechTrack.Blazor.csproj" />
   </ItemGroup>
 

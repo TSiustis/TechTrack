@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+  <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Equipment\Queries\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
 
 </Project>
