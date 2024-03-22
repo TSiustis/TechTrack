@@ -1,6 +1,7 @@
 ﻿@page "/users-with-equipment"
 @inject HttpClient Http
 @using TechTrack.Application.Equipments.ViewModels
+@using TechTrack.Application.Users.ViewModels
 
 <h3>Users and Their Equipment</h3>
 
@@ -32,10 +33,10 @@ else
 }
 
 @code {
-    private List<UserWithEquipmentVm>? usersWithEquipment;
+    private List<UserWithEquipmentsVm>? usersWithEquipment;
 
     protected override async Task OnInitializedAsync()
     {
-        usersWithEquipment = await Http.GetFromJsonAsync<List<UserWithEquipmentVm>>("api/users");
+        usersWithEquipment = await Http.GetFromJsonAsync<List<UserWithEquipmentsVm>>("api/users");
     }
 }

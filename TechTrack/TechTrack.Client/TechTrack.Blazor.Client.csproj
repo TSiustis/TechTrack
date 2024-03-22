@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -28,6 +28,11 @@
 
   <ItemGroup>
     <None Include="Pages\UsersWithEquipments.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TechTrack.Application\TechTrack.Application.csproj" />
+    <ProjectReference Include="..\..\TechTrack.Domain\TechTrack.Domain.csproj" />
   </ItemGroup>
 
 </Project>

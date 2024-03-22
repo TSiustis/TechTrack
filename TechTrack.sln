@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Blazor", "TechTrack\TechTrack\TechTrack.Blazor.csproj", "{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DE8E1D3F-2D02-4B8A-B9CC-C7666445443F} = {DE8E1D3F-2D02-4B8A-B9CC-C7666445443F}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Blazor.Client", "TechTrack\TechTrack.Client\TechTrack.Blazor.Client.csproj", "{3385CA14-1088-4BF0-8947-48FB64E90B32}"
 EndProject

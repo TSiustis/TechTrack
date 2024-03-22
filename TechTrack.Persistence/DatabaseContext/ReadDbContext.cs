@@ -20,6 +20,7 @@ namespace TechTrack.Persistence.DatabaseContext
 
             modelBuilder.HasDefaultSchema("read");
             modelBuilder.ApplyConfiguration(new EquipmentConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }   
     }
 }
