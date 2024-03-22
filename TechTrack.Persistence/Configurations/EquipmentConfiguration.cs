@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 using TechTrack.Domain.Enums;
 using TechTrack.Domain.Models;
 
@@ -28,7 +29,12 @@ namespace TechTrack.Persistence.Configurations
             .HasConversion(
                 v => v.ToString(),
                 v => (EquipmentStatus)Enum.Parse(typeof(EquipmentStatus), v))
-                .IsUnicode(false);
+            .IsUnicode(false);
+
+            builder.HasOne(e => e.AssignedTo)
+               .WithMany(u => u.AssignedEquipments)
+               .HasForeignKey(e => e.AssignedToUserId)
+               .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
