@@ -30,9 +30,4 @@
     <None Include="Pages\UsersWithEquipments.razor" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\TechTrack.Application\TechTrack.Application.csproj" />
-    <ProjectReference Include="..\..\TechTrack.Domain\TechTrack.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

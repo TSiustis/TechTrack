@@ -1,0 +1,67 @@
+﻿@page "/equipments"
+@inject EquipmentsHttpClientService EquipmentsService
+
+<h3>Equipments</h3>
+
+@if (equipments == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (equipments.Items.Count == 0)
+{
+    <p>No equipments found. You can add new equipments.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var equipment in equipments.Items)
+            {
+                <tr>
+                    <td>@equipment.Name</td>
+                    <td>@equipment.Type</td>
+                    <td>@equipment.Status</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => UpdateEquipment(equipment.Id)">Update</button>
+                        <button class="btn btn-danger" @onclick="() => RetireEquipment(equipment.Id)">Retire</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-success" @onclick="AddEquipment">Add Equipment</button>
+
+@code {
+    private PaginatedResult<EquipmentOutputVm>? equipments;
+
+    protected override async Task OnInitializedAsync()
+    {
+        equipments = await EquipmentsService.GetEquipmentsAsync(new EquipmentInputVm());
+    }
+
+    void AddEquipment()
+    {
+        NavigationManager.NavigateTo("/equipments/add");
+    }
+
+    void UpdateEquipment(Guid id)
+    {
+        NavigationManager.NavigateTo($"/equipments/update/{id}");
+    }
+
+    async Task RetireEquipment(Guid id)
+    {
+        await EquipmentsService.RetireEquipmentAsync(id);
+        equipments = await EquipmentsService.GetEquipmentsAsync(new EquipmentInputVm()); 
+    }
+}
