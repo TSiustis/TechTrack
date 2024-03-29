@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Interfaces.Equipments;
 
 namespace TechTrack.Application.Equipments.Queries.GetEquipment

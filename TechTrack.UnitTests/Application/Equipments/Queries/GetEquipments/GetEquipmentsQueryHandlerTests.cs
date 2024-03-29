@@ -3,10 +3,10 @@ using AutoMapper;
 using FluentAssertions;
 using Moq;
 using TechTrack.Application;
-using TechTrack.Application.Common.Pagination;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Pagination;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Equipments.Queries.GetEquipments;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.ViewModel.Equipments;
 using TechTrack.Application.Interfaces.Equipments;
 
 namespace TechTrack.UnitTests.Application.Equipments.Queries.GetEquipments

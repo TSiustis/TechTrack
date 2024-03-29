@@ -1,6 +1,6 @@
 ﻿using TechTrack.Domain.Enums;
 
-namespace TechTrack.Application.Equipments.ViewModels
+namespace TechTrack.Common.ViewModel.Equipments
 {
     public class EquipmentOutputVm
     {

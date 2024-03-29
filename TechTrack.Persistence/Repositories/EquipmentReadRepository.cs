@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using TechTrack.Application.Common.Pagination;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Pagination;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;
 using TechTrack.Persistence.DatabaseContext;

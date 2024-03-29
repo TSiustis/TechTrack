@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Moq;
 using TechTrack.Application.Equipments.Commands.UpdateEquipment;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;
 

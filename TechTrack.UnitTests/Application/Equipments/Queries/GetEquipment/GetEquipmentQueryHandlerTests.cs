@@ -3,7 +3,7 @@ using AutoMapper;
 using FluentAssertions;
 using Moq;
 using TechTrack.Application;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Equipments.Queries.GetEquipment;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;

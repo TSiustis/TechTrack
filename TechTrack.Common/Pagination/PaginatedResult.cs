@@ -1,4 +1,4 @@
-﻿namespace TechTrack.Application.Common.Pagination
+﻿namespace TechTrack.Common.Pagination
 {
     public class PaginatedResult<T>
     {

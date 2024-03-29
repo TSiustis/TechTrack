@@ -1,4 +1,4 @@
-﻿using TechTrack.Application.Users.ViewModels;
+﻿using TechTrack.Common.ViewModel.Users;
 
 namespace TechTrack.Application.Interfaces.Users;
 public interface IUserHttpClientService

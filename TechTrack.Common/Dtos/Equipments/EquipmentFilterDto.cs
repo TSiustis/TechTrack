@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
-using TechTrack.Application.Common.Pagination;
+using TechTrack.Common.Pagination;
 using TechTrack.Domain.Models;
 
-namespace TechTrack.Application.Equipments.Dtos
+namespace TechTrack.Common.Dtos.Equipments
 {
     public class EquipmentFilterDto : PaginationFilter
     {

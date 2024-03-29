@@ -1,9 +1,9 @@
-﻿using global::TechTrack.Application.Users.ViewModels;
+﻿using global::TechTrack.Common.ViewModel.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TechTrack.Application.Common.Pagination;
+using TechTrack.Common.Pagination;
 using TechTrack.Application.Equipments.Queries.GetEquipments;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.ViewModel.Equipments;
 using TechTrack.Application.Users.Queries;
 
 namespace TechTrack.Api.Controllers

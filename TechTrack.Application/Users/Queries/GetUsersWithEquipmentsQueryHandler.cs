@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using TechTrack.Application.Interfaces.Users;
-using TechTrack.Application.Users.ViewModels;
+using TechTrack.Common.ViewModel.Users;
 
 namespace TechTrack.Application.Users.Queries;
 

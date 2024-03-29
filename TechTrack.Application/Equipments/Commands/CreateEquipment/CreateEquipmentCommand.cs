@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 
 namespace TechTrack.Application.Equipments.Commands.CreateEquipment
 {

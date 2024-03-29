@@ -1,5 +1,10 @@
 ﻿@page "/equipments"
-@inject EquipmentsHttpClientService EquipmentsService
+@using System.Text.Json
+@using TechTrack.Common.Interfaces.HttpClients
+@using TechTrack.Common.Pagination
+@using TechTrack.Common.ViewModel.Equipments
+@inject IEquipmentsHttpClientService EquipmentsService
+@inject NavigationManager NavigationManager
 
 <h3>Equipments</h3>
 
@@ -7,7 +12,7 @@
 {
     <p><em>Loading...</em></p>
 }
-else if (equipments.Items.Count == 0)
+else if (equipments.Data.Count == 0)
 {
     <p>No equipments found. You can add new equipments.</p>
 }
@@ -23,7 +28,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var equipment in equipments.Items)
+            @foreach (var equipment in equipments.Data)
             {
                 <tr>
                     <td>@equipment.Name</td>
@@ -43,10 +48,12 @@ else
 
 @code {
     private PaginatedResult<EquipmentOutputVm>? equipments;
-
+    private EquipmentInputVm filter = new ();
+    private JsonSerializerOptions options = new();
+    
     protected override async Task OnInitializedAsync()
     {
-        equipments = await EquipmentsService.GetEquipmentsAsync(new EquipmentInputVm());
+        equipments = await EquipmentsService.GetEquipmentsAsync(filter, options);
     }
 
     void AddEquipment()
@@ -62,6 +69,6 @@ else
     async Task RetireEquipment(Guid id)
     {
         await EquipmentsService.RetireEquipmentAsync(id);
-        equipments = await EquipmentsService.GetEquipmentsAsync(new EquipmentInputVm()); 
+        equipments = await EquipmentsService.GetEquipmentsAsync(filter, options); 
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.ViewModel.Equipments;
 using TechTrack.Application.Interfaces.Users;
-using TechTrack.Application.Users.ViewModels;
+using TechTrack.Common.ViewModel.Users;
 using TechTrack.Domain.Models;
 using TechTrack.Persistence.DatabaseContext;
 

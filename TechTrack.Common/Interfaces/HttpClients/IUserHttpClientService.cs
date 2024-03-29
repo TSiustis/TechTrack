@@ -1,10 +1,9 @@
 ﻿using TechTrack.Common.ViewModel.Users;
 
-namespace TechTrack.Application.Interfaces.Users
+namespace TechTrack.Common.Interfaces.HttpClients
 {
-    public interface IUsersReadRepository
+    public interface IUserHttpClientService
     {
-
         Task<List<UserWithEquipmentsVm>> GetUsersWithEquipmentsAsync();
     }
 }

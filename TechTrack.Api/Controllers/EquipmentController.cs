@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using TechTrack.Application.Common.Pagination;
+using TechTrack.Common.Pagination;
 using TechTrack.Application.Equipments.Commands.CreateEquipment;
 using TechTrack.Application.Equipments.Commands.DeleteEquipment;
 using TechTrack.Application.Equipments.Commands.UpdateEquipment;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Equipments.Queries.GetEquipment;
 using TechTrack.Application.Equipments.Queries.GetEquipments;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.ViewModel.Equipments;
 
 namespace TechTrack.Api.Controllers
 {

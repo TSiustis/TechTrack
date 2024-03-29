@@ -1,6 +1,6 @@
 ﻿using FluentValidation.TestHelper;
 using TechTrack.Application.Equipments.Commands.CreateEquipment;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 
 namespace TechTrack.UnitTests.Application.Equipments.Commands.CreateEquipment
 {

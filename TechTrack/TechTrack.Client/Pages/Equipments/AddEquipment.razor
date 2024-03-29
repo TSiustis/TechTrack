@@ -1,5 +1,7 @@
 ﻿@page "/equipments/add"
-@inject EquipmentsHttpClientService EquipmentsService
+@using TechTrack.Common.Dtos.Equipments
+@using TechTrack.Common.Interfaces.HttpClients
+@inject IEquipmentsHttpClientService EquipmentsService
 @inject NavigationManager NavigationManager
 
 <h3>Add Equipment</h3>

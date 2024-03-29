@@ -4,13 +4,14 @@
     using System.Net.Http.Json;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using TechTrack.Application.Users.ViewModels;
+    using TechTrack.Common.ViewModel.Users;
+    using TechTrack.Common.Interfaces.HttpClients;
 
-    public class UsersHttpClientService
+    public class UserHttpClientService : IUserHttpClientService
     {
         private readonly HttpClient _httpClient;
 
-        public UsersHttpClientService(HttpClient httpClient)
+        public UserHttpClientService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

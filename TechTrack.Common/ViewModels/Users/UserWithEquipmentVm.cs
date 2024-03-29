@@ -1,6 +1,6 @@
-﻿using TechTrack.Application.Equipments.ViewModels;
+﻿using TechTrack.Common.ViewModel.Equipments;
 
-namespace TechTrack.Application.Users.ViewModels
+namespace TechTrack.Common.ViewModel.Users
 {
     public class UserWithEquipmentsVm
     {

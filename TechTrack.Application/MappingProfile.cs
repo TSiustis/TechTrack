@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using TechTrack.Application.Equipments.Dtos;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.Dtos.Equipments;
+using TechTrack.Common.ViewModel.Equipments;
 using TechTrack.Domain.Models;
 
 namespace TechTrack.Application

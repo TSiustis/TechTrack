@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using TechTrack.Application.Common.Pagination;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.Pagination;
+using TechTrack.Common.ViewModel.Equipments;
 
 namespace TechTrack.Application.Equipments.Queries.GetEquipments
 {

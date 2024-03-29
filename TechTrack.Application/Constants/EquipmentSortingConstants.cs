@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Domain.Models;
 
 namespace TechTrack.Application.Constants;

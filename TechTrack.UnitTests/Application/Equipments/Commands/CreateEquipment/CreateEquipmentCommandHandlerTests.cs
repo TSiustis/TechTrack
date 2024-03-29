@@ -3,7 +3,7 @@ using AutoMapper;
 using Moq;
 using TechTrack.Application;
 using TechTrack.Application.Equipments.Commands.CreateEquipment;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Events;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;

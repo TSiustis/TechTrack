@@ -1,5 +1,5 @@
-﻿using TechTrack.Application.Common.Pagination;
-using TechTrack.Application.Equipments.Dtos;
+﻿using TechTrack.Common.Pagination;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Domain.Models;
 
 namespace TechTrack.Application.Interfaces.Equipments

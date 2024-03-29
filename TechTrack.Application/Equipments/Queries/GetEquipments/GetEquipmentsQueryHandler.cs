@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
 using System.Linq.Expressions;
-using TechTrack.Application.Common.Pagination;
-using TechTrack.Application.Constants;
-using TechTrack.Application.Equipments.Dtos;
+using TechTrack.Common.Pagination;
+using TechTrack.Common.Dtos.Equipments;
 using TechTrack.Application.Equipments.Extensions;
-using TechTrack.Application.Equipments.ViewModels;
+using TechTrack.Common.ViewModel.Equipments;
 using TechTrack.Application.Helpers;
 using TechTrack.Application.Interfaces.Equipments;
 using TechTrack.Domain.Models;
