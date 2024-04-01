@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using TechTrack.Data;
+using TechTrack.Blazor.Data;
 
 namespace TechTrack.Blazor.Components.Account
 {

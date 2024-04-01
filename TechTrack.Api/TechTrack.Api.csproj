@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc" Version="8.0.0" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
@@ -16,7 +17,6 @@
     <ProjectReference Include="..\TechTrack.Application\TechTrack.Application.csproj" />
     <ProjectReference Include="..\TechTrack.Infrastructure\TechTrack.Infrastructure.csproj" />
     <ProjectReference Include="..\TechTrack.Persistence\TechTrack.Persistence.csproj" />
-    <ProjectReference Include="..\TechTrack\TechTrack\TechTrack.Blazor.csproj" />
   </ItemGroup>
 
 </Project>

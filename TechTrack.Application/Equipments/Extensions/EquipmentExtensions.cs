@@ -77,7 +77,7 @@ public static class EquipmentExtensions
     }
 
     public static Expression<Func<Equipment, bool>> AndAssignedToUserIdEqualTo(
-        this Expression<Func<Equipment, bool>> predicate, int? assignedToUserId)
+        this Expression<Func<Equipment, bool>> predicate, Guid? assignedToUserId)
     {
         if (!assignedToUserId.HasValue)
         {

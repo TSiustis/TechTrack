@@ -10,6 +10,7 @@ using TechTrack.Application.Equipments.Queries.GetEquipments;
 using TechTrack.Application.Common.Interfaces;
 using TechTrack.Application.Events;
 using System.Text.Json.Serialization;
+using TechTrack.Application.Interfaces.Users;
 
 public class Program
 {
@@ -25,6 +26,7 @@ public class Program
 
         builder.Services.AddScoped<IEquipmentReadRepository, EquipmentReadRepository>();
         builder.Services.AddScoped<IEquipmentWriteRepository, EquipmentWriteRepository>();
+        builder.Services.AddScoped<IUsersReadRepository, UsersReadRepository>();
 
         builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
         builder.Services.AddControllers()

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using TechTrack.Blazor.Client.Pages;
 using TechTrack.Blazor.Components;
 using TechTrack.Blazor.Components.Account;
-using TechTrack.Data;
+using TechTrack.Blazor.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

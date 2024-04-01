@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using TechTrack.Blazor.Client.Services;
-using TechTrack.Client;
+using TechTrack.Blazor.Client;
 using TechTrack.Common.Interfaces.HttpClients;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

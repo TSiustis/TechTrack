@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using TechTrack.Data;
+using TechTrack.Blazor.Data;
 
 namespace TechTrack.Blazor.Components.Account
 {

@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using System.Security.Claims;
-using TechTrack.Client;
-using TechTrack.Data;
+using TechTrack.Blazor.Client;
+using TechTrack.Blazor.Data;
 
 namespace TechTrack.Blazor.Components.Account
 {

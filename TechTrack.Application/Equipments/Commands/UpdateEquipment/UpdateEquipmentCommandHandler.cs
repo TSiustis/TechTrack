@@ -2,7 +2,6 @@
 using MediatR;
 using TechTrack.Application.Events;
 using TechTrack.Application.Interfaces.Equipments;
-using TechTrack.Domain.Models;
 
 namespace TechTrack.Application.Equipments.Commands.UpdateEquipment
 {

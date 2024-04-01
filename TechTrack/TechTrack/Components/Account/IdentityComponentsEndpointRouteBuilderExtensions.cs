@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Text.Json;
 using TechTrack.Blazor.Components.Account.Pages;
 using TechTrack.Blazor.Components.Account.Pages.Manage;
-using TechTrack.Data;
+using TechTrack.Blazor.Data;
 
 namespace Microsoft.AspNetCore.Routing
 {
