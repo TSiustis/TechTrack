@@ -12,7 +12,7 @@ namespace TechTrack.Common.ViewModel.Equipments
         public EquipmentStatus Status { get; set; }
         public DateTime? AssignmentDate { get; set; }
         public DateTime? ReturnDate { get; set; }
-        public int? AssignedToUserId { get; set; }
+        public Guid? AssignedToUserId { get; set; }
         public string? SortBy { get; set; }
         public string? SortDirection { get; set; }
     }
