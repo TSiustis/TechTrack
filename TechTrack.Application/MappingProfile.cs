@@ -9,10 +9,10 @@ namespace TechTrack.Application
     {
         public MappingProfile()
         {
-            CreateMap<Equipment, EquipmentDto>();
-            CreateMap<EquipmentForCreationDto, Equipment>();
-            CreateMap<EquipmentForUpdateDto, Equipment>();
-            CreateMap<EquipmentDto, EquipmentOutputVm>();
+            CreateMap<Equipment, EquipmentDto>().ReverseMap();
+            CreateMap<EquipmentForCreationDto, Equipment>().ReverseMap();
+            CreateMap<EquipmentForUpdateDto, Equipment>().ReverseMap();
+            CreateMap<EquipmentDto, EquipmentOutputVm>().ReverseMap();
         }
     }
 }

@@ -14,10 +14,10 @@ namespace TechTrack.UnitTests.Application.Equipments.Commands.CreateEquipment
         }
 
         [Fact]
-        public void AssignedToUserId_ShouldBeGreaterThanZero()
+        public void AssignedToUserId_ShouldNotBeNull()
         {
             // Arrange
-            var equipmentForCreationDto = new EquipmentForCreationDto { AssignedToUserId = 0 };
+            var equipmentForCreationDto = new EquipmentForCreationDto { };
             var model = new CreateEquipmentCommand(equipmentForCreationDto);
 
             // Act

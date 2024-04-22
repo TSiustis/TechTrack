@@ -53,7 +53,7 @@ namespace TechTrack.Api
                     Status = EquipmentStatus.Assigned,
                     AssignmentDate = DateTime.UtcNow.AddDays(-90),
                     ReturnDate = DateTime.UtcNow.AddDays(30),
-                    AssignedToUserId = Guid.NewGuid()
+                    AssignedToUserId = null
                 },
                 new() {
                     Id = Guid.NewGuid(),
@@ -63,7 +63,7 @@ namespace TechTrack.Api
                     Status = EquipmentStatus.Assigned,
                     AssignmentDate = DateTime.UtcNow.AddDays(-60),
                     ReturnDate = DateTime.UtcNow.AddDays(15),
-                    AssignedToUserId = Guid.NewGuid()
+                    AssignedToUserId = null
                 },
                 new() {
                     Id = Guid.NewGuid(),

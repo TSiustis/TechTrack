@@ -20,7 +20,7 @@ namespace TechTrack.Api.Controllers
         [HttpGet("equipments")]
         [ProducesResponseType(typeof(PaginatedResult<EquipmentOutputVm>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<PaginatedResult<EquipmentOutputVm>>> TendersSummary( 
+        public async Task<ActionResult<PaginatedResult<EquipmentOutputVm>>> GetEquipmentsAsync( 
             [FromQuery] EquipmentInputVm equipmentsFilter)
         {
             var equipments = await Mediator.Send(new GetEquipmentsQuery(equipmentsFilter));

@@ -8,7 +8,7 @@ namespace TechTrack.Application.Equipments.Commands.CreateEquipment
         {
             RuleFor(command => command.EquipmentForCreationDto.
             AssignedToUserId)
-                .GreaterThan(0);
+                .NotNull();
 
             RuleFor(command => command.EquipmentForCreationDto.
             ReturnDate)

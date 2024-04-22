@@ -8,7 +8,7 @@ namespace TechTrack.Common.Interfaces.HttpClients
     public interface IEquipmentsHttpClientService
     {
         Task<PaginatedResult<EquipmentOutputVm>> GetEquipmentsAsync(
-            EquipmentInputVm equipmentsFilter, JsonSerializerOptions options);
+            EquipmentInputVm equipmentsFilter);
         Task<EquipmentDto> GetEquipmentAsync(Guid id);
         Task CreateEquipmentAsync(EquipmentForCreationDto equipmentDto);
         Task UpdateEquipmentAsync(Guid id, EquipmentForUpdateDto equipmentDto);

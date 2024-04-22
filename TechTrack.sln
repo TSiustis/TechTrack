@@ -3,13 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Blazor", "TechTrack\TechTrack\TechTrack.Blazor.csproj", "{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}"
-	ProjectSection(ProjectDependencies) = postProject
-		{DE8E1D3F-2D02-4B8A-B9CC-C7666445443F} = {DE8E1D3F-2D02-4B8A-B9CC-C7666445443F}
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Blazor.Client", "TechTrack\TechTrack.Client\TechTrack.Blazor.Client.csproj", "{3385CA14-1088-4BF0-8947-48FB64E90B32}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Domain", "TechTrack.Domain\TechTrack.Domain.csproj", "{8DA605F8-F984-407E-92CE-23DC389C45C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Infrastructure", "TechTrack.Infrastructure\TechTrack.Infrastructure.csproj", "{B97D68E6-2361-477A-A4CA-A3DDDF48D70A}"
@@ -26,7 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C012A772
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.UnitTests", "TechTrack.UnitTests\TechTrack.UnitTests.csproj", "{2C706088-E299-4A63-AC5E-99CDFBFD3036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTrack.Common", "TechTrack.Common\TechTrack.Common.csproj", "{757EEB3E-FD10-422F-8596-1B63CD2C1CE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTrack.Common", "TechTrack.Common\TechTrack.Common.csproj", "{757EEB3E-FD10-422F-8596-1B63CD2C1CE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Techtrack.Ui", "Techtrack.Ui\Techtrack.Ui\Techtrack.Ui.csproj", "{1AEA8283-73E3-4502-8F59-E0C74A1E778C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Techtrack.Ui.Client", "Techtrack.Ui\Techtrack.Ui.Client\Techtrack.Ui.Client.csproj", "{F94D999C-5D6E-4A05-AACF-E396690C3604}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,14 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3385CA14-1088-4BF0-8947-48FB64E90B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3385CA14-1088-4BF0-8947-48FB64E90B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3385CA14-1088-4BF0-8947-48FB64E90B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3385CA14-1088-4BF0-8947-48FB64E90B32}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DA605F8-F984-407E-92CE-23DC389C45C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8DA605F8-F984-407E-92CE-23DC389C45C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA605F8-F984-407E-92CE-23DC389C45C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,13 +59,19 @@ Global
 		{757EEB3E-FD10-422F-8596-1B63CD2C1CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{757EEB3E-FD10-422F-8596-1B63CD2C1CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{757EEB3E-FD10-422F-8596-1B63CD2C1CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AEA8283-73E3-4502-8F59-E0C74A1E778C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AEA8283-73E3-4502-8F59-E0C74A1E778C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AEA8283-73E3-4502-8F59-E0C74A1E778C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AEA8283-73E3-4502-8F59-E0C74A1E778C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94D999C-5D6E-4A05-AACF-E396690C3604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94D999C-5D6E-4A05-AACF-E396690C3604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94D999C-5D6E-4A05-AACF-E396690C3604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94D999C-5D6E-4A05-AACF-E396690C3604}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B2AC97DD-E938-4F64-B25E-3DE40F5D0D43} = {668BFFC9-DCA7-4621-8E60-229396126921}
-		{3385CA14-1088-4BF0-8947-48FB64E90B32} = {668BFFC9-DCA7-4621-8E60-229396126921}
 		{8DA605F8-F984-407E-92CE-23DC389C45C4} = {668BFFC9-DCA7-4621-8E60-229396126921}
 		{B97D68E6-2361-477A-A4CA-A3DDDF48D70A} = {668BFFC9-DCA7-4621-8E60-229396126921}
 		{DE8E1D3F-2D02-4B8A-B9CC-C7666445443F} = {668BFFC9-DCA7-4621-8E60-229396126921}
@@ -84,6 +79,8 @@ Global
 		{CA232B33-B2A3-4D63-BDF0-4162B5B8BFCB} = {668BFFC9-DCA7-4621-8E60-229396126921}
 		{2C706088-E299-4A63-AC5E-99CDFBFD3036} = {C012A772-44DC-4581-A799-4DB77FE3599B}
 		{757EEB3E-FD10-422F-8596-1B63CD2C1CE0} = {668BFFC9-DCA7-4621-8E60-229396126921}
+		{1AEA8283-73E3-4502-8F59-E0C74A1E778C} = {668BFFC9-DCA7-4621-8E60-229396126921}
+		{F94D999C-5D6E-4A05-AACF-E396690C3604} = {668BFFC9-DCA7-4621-8E60-229396126921}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3ACA3D2-3ED9-4FCD-9EEC-68DE7734A69C}
