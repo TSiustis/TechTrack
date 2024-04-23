@@ -12,5 +12,6 @@ namespace TechTrack.Common.Dtos.Equipments
         public DateTime? AssignmentDate { get; set; }
         public DateTime? ReturnDate { get; set; }
         public Guid? AssignedToUserId { get; set; }
+        public string? AssignedToUserName { get; set; }
     }
 }

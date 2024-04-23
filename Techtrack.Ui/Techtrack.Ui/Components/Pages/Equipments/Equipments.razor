@@ -5,26 +5,16 @@
 @using TechTrack.Common.ViewModel.Equipments
 @inject IEquipmentsHttpClientService EquipmentsHttpClientService
 @inject NavigationManager NavigationManager
-@rendermode InteractiveServer
+
+@rendermode InteractiveAuto
 
 <h3>Equipments</h3>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="input-group mb-3">
-            <span class="input-group-text">Search</span>
-            <input type="text" class="form-control" @bind="filter.Name" placeholder="Search by name">
-            <input type="text" class="form-control" @bind="filter.Type" placeholder="Search by type">
-            <button class="btn btn-primary" @onclick="ApplyFilter">Apply Filter</button>
-        </div>
-    </div>
-</div>
 
 @if (equipments == null)
 {
     <p><em>Loading...</em></p>
 }
-else if (equipments?.Data?.Count == 0)
+else if (equipments.Data.Count == 0)
 {
     <p>No equipments found. You can add new equipments.</p>
 }
@@ -33,15 +23,10 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th @onclick="() => SortByColumn(nameof(EquipmentOutputVm.Name))">
-                    Name <i class="fas fa-sort" @onclick="() => SortByColumn(nameof(EquipmentOutputVm.Name))"></i> 
-                </th>
-                <th @onclick="() => SortByColumn(nameof(EquipmentOutputVm.Type))">
-                    Type <i class="fas fa-sort" @onclick="() => SortByColumn(nameof(EquipmentOutputVm.Type))"></i>
-                </th>
-                <th @onclick="() => SortByColumn(nameof(EquipmentOutputVm.Status))">
-                    Status <i class="fas fa-sort" @onclick="() => SortByColumn(nameof(EquipmentOutputVm.Status))"></i>
-                </th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Assigned To</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -52,6 +37,7 @@ else
                     <td>@equipment.Name</td>
                     <td>@equipment.Type</td>
                     <td>@equipment.Status</td>
+                    <td>@equipment.AssignedToUserName</td>
                     <td>
                         <button class="btn btn-primary" @onclick="() => UpdateEquipment(equipment.Id)">Update</button>
                         <button class="btn btn-danger" @onclick="() => RetireEquipment(equipment.Id)">Retire</button>
@@ -60,17 +46,6 @@ else
             }
         </tbody>
     </table>
-    <PaginatedList CurrentPage="@currentPage"
-                   PageCount="@equipments.TotalPages"
-                   VisiblePages="5"
-                   ShowFirstLast="true"
-                   ShowPageNumbers="true"
-                   FirstText="&laquo;"
-                   LastText="&raquo;"
-                   NextText="&rsaquo;"
-                   PreviousText="&lsaquo;"
-                   OnPageChanged="(async e => { currentPage = e; await LoadDistributions();})">
-    </PaginatedList>
 }
 
 <button class="btn btn-success" @onclick="AddEquipment">Add Equipment</button>
@@ -78,56 +53,25 @@ else
 @code {
     private PaginatedResult<EquipmentOutputVm>? equipments;
     private EquipmentInputVm filter = new();
-    private int currentPage = 1;
-    private bool isAscending = true;
-    private string sortByColumn = string.Empty;
 
     protected override async Task OnInitializedAsync()
-    {
-        await LoadEquipments();
-    }
-
-    private async Task LoadEquipments()
     {
         equipments = await EquipmentsHttpClientService.GetEquipmentsAsync(filter);
     }
 
-    private async Task ApplyFilter()
-    {
-        await LoadEquipments();
-    }
-
-    private async Task AddEquipment()
+    void AddEquipment()
     {
         NavigationManager.NavigateTo("/equipments/add");
     }
 
-    private async Task UpdateEquipment(Guid id)
+    void UpdateEquipment(Guid id)
     {
         NavigationManager.NavigateTo($"/equipments/update/{id}");
     }
 
-    private async Task RetireEquipment(Guid id)
+    async Task RetireEquipment(Guid id)
     {
         await EquipmentsHttpClientService.RetireEquipmentAsync(id);
-        await LoadEquipments();
-    }
-
-    private async Task SortByColumn(string columnName)
-    {
-        if (columnName == sortByColumn)
-        {
-            isAscending = !isAscending;
-        }
-        else
-        {
-            isAscending = true;
-            sortByColumn = columnName;
-        }
-
-        filter.SortBy = sortByColumn;
-        filter.SortDirection = isAscending ? "Asc" : "Desc";
-
-        await LoadEquipments();
+        equipments = await EquipmentsHttpClientService.GetEquipmentsAsync(filter);
     }
 }

@@ -26,6 +26,7 @@ else
                 <th>Name</th>
                 <th>Type</th>
                 <th>Status</th>
+                <th>Assigned To</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -36,6 +37,7 @@ else
                     <td>@equipment.Name</td>
                     <td>@equipment.Type</td>
                     <td>@equipment.Status</td>
+                    <td>@equipment.AssignedToUserName</td>
                     <td>
                         <button class="btn btn-primary" @onclick="() => UpdateEquipment(equipment.Id)">Update</button>
                         <button class="btn btn-danger" @onclick="() => RetireEquipment(equipment.Id)">Retire</button>

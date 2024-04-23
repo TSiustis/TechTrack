@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Techtrack.Ui;
 using Techtrack.Ui.Client.Pages;
 using Techtrack.Ui.Client.Services;
 using Techtrack.Ui.Components;
@@ -86,5 +87,10 @@ app.MapRazorComponents<App>()
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
+
+if (app.Environment.IsDevelopment())
+{
+    await DataSeeder.SeedDataAsync(app.Services);
+}
 
 app.Run();

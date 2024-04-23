@@ -6,5 +6,6 @@ namespace TechTrack.Application.Interfaces.Users
     {
 
         Task<List<UserWithEquipmentsVm>> GetUsersWithEquipmentsAsync();
+        Task<string> GetAssignedUserName(Guid id);
     }
 }

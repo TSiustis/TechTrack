@@ -24,6 +24,7 @@ namespace TechTrack.Persistence.Repositories
         public async Task<PaginatedResult<EquipmentDto>> FilterEquipmentsAsync(EquipmentFilterDto filter, CancellationToken cancellationToken)
         {
             var searchQuery = _context.Equipments
+                .Include(e => e.AssignedTo)
                 .AsQueryable()
                 .OrderBy(filter.SortExpression)
                 .AsNoTracking()

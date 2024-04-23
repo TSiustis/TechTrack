@@ -39,5 +39,10 @@ namespace TechTrack.Persistence.Repositories
 
             return usersWithEquipments;
         }
+        public async Task<string> GetAssignedUserName(Guid assignedToUserId)
+        {
+            var user = await _context.Users.FindAsync(assignedToUserId);
+            return user?.Name;
+        }
     }
 }

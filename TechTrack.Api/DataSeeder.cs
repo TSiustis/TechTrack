@@ -13,12 +13,12 @@ namespace TechTrack.Api
             var readDbContext = services.GetRequiredService<ReadDbContext>();
             var writeDbContext = services.GetRequiredService<WriteDbContext>();
 
-            if(readDbContext.Equipments.Any())
+            if (readDbContext.Equipments.Any())
             {
                 return;
             }
 
-            if(writeDbContext.Equipments.Any())
+            if (writeDbContext.Equipments.Any())
             {
                 return;
             }
@@ -33,7 +33,7 @@ namespace TechTrack.Api
                     Status = EquipmentStatus.Available,
                     AssignmentDate = null,
                     ReturnDate = null,
-                    AssignedToUserId = null
+                    AssignedToUserId = new Guid("46187ce0-5637-4435-805a-48c59ebface6")
                 },
                 new() {
                     Id = Guid.NewGuid(),
@@ -111,6 +111,29 @@ namespace TechTrack.Api
             await readDbContext.SaveChangesAsync();
 
             await writeDbContext.Equipments.AddRangeAsync(equipments);
+            await writeDbContext.SaveChangesAsync();
+
+            var users = new User[]
+            {
+        new() {
+            Id = new Guid("46187ce0-5637-4435-805a-48c59ebface6"),
+            Name = "John Doe",
+            Email = "john@example.com",
+            Department = "IT"
+        },
+        new()
+        {
+            Id = Guid.NewGuid(),
+            Name = "Jane Smith",
+            Email = "jane@example.com",
+            Department = "HR"
+        }
+            };
+
+            await readDbContext.Users.AddRangeAsync(users);
+            await readDbContext.SaveChangesAsync();
+
+            await writeDbContext.Users.AddRangeAsync(users);
             await writeDbContext.SaveChangesAsync();
         }
     }
