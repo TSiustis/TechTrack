@@ -1,8 +1,10 @@
-﻿@page "/equipments/add"
+﻿@page "/equipment/add"
 @using TechTrack.Common.Dtos.Equipments
 @using TechTrack.Common.Interfaces.HttpClients
 @inject IEquipmentsHttpClientService EquipmentsService
 @inject NavigationManager NavigationManager
+
+@rendermode InteractiveAuto
 
 <h3>Add Equipment</h3>
 
@@ -10,15 +12,15 @@
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <div class="form-group">
+    <div class="form-group" style="width: 40%;">
         <label for="name">Name:</label>
         <InputText id="name" class="form-control" @bind-Value="equipmentDto.Name" />
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width: 40%;">
         <label for="type">Type:</label>
         <InputText id="type" class="form-control" @bind-Value="equipmentDto.Type" />
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width: 40%;">
         <label for="status">Status:</label>
         <InputSelect id="status" class="form-control" @bind-Value="equipmentDto.Status">
             <option value="">Select a status</option>
@@ -28,7 +30,7 @@
         </InputSelect>
     </div>
 
-    <button type="submit" class="btn btn-success">Add Equipment</button>
+    <button type="submit" class="btn btn-primary">Add Equipment</button>
 </EditForm>
 
 @code {
@@ -37,6 +39,6 @@
     private async Task HandleValidSubmit()
     {
         await EquipmentsService.CreateEquipmentAsync(equipmentDto);
-        NavigationManager.NavigateTo("/equipments");
+        NavigationManager.NavigateTo("/equipment");
     }
 }

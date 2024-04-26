@@ -36,6 +36,12 @@ public static class EquipmentExtensions
         return predicate.And(equipment => equipment.Type == type);
     }
 
+    public static Expression<Func<Equipment, bool>> AndStatusIsNotRetired(
+        this Expression<Func<Equipment, bool>> predicate)
+    {
+        return predicate.And(equipment => equipment.Status != EquipmentStatus.Retired);
+    }
+
     public static Expression<Func<Equipment, bool>> AndSerialNumberEqualTo(
         this Expression<Func<Equipment, bool>> predicate, string serialNumber)
     {
@@ -47,7 +53,7 @@ public static class EquipmentExtensions
     }
 
     public static Expression<Func<Equipment, bool>> AndStatusEqualTo(
-        this Expression<Func<Equipment, bool>> predicate, EquipmentStatus status)
+        this Expression<Func<Equipment, bool>> predicate, EquipmentStatus? status)
     {
         if (status == default)
         {

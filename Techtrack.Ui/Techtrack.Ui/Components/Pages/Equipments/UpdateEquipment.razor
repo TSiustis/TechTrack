@@ -1,0 +1,88 @@
+﻿@page "/equipment/update/{id:guid}"
+@using System.Text.Json
+@using TechTrack.Common.Interfaces.HttpClients
+@using TechTrack.Common.Pagination
+@using TechTrack.Common.Dtos.Equipments
+@using TechTrack.Common.ViewModel.Users
+@using TechTrack.Domain.Enums
+@inject IEquipmentsHttpClientService EquipmentsHttpClientService
+@inject IUserHttpClientService UsersHttpClientService
+@inject NavigationManager NavigationManager
+
+@rendermode InteractiveServer
+
+<h3>Update Equipment</h3>
+
+@if (equipment == null || users == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" @bind="equipment.Name" style="width: 200px;">
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input type="text" class="form-control" id="type" @bind="equipment.Type" style="width: 200px;">
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" id="status" @bind="equipment.Status" style="width: 200px;">
+                @foreach (EquipmentStatus status in Enum.GetValues(typeof(EquipmentStatus)))
+                {
+                    <option value="@status">@status.GetDescription()</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="assignedUser">Assigned User</label>
+            <select class="form-control" id="assignedUser" @bind="equipment.AssignedToUserId" style="width: 200px;">
+                @foreach (var user in users)
+                {
+                    <option value="@user.UserId">@user.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" @onclick="UpdateEquipments">Update</button>
+    </form>
+
+    <button type="submit" class="btn btn-primary" @onclick="SeeEquipments">Back to equipments</button>
+}
+
+@code {
+    private EquipmentDto? equipment;
+    private List<UserWithEquipmentsVm>? users;
+    [Parameter]
+    public Guid id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        equipment = await EquipmentsHttpClientService.GetEquipmentAsync(id);
+        users = await UsersHttpClientService.GetUsersWithEquipmentsAsync();
+    }
+
+    private async Task UpdateEquipments()
+    {
+        if (equipment != null)
+        {
+            var equipmentForUpdateDto = new EquipmentForUpdateDto
+                {
+                    Name = equipment.Name,
+                    Type = equipment.Type,
+                    Status = equipment.Status,
+                    AssignedToUserId = equipment.AssignedToUserId
+                };
+
+            await EquipmentsHttpClientService.UpdateEquipmentAsync(id, equipmentForUpdateDto);
+            NavigationManager.NavigateTo(NavigationManager.BaseUri + "equipment", true);
+        }
+    }
+
+    private void SeeEquipments()
+    {
+        NavigationManager.NavigateTo("/equipment");
+    }
+}

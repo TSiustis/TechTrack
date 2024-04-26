@@ -46,7 +46,7 @@ namespace Techtrack.Ui.Client.Services
                 queryStringParam.Add("serialNumber", equipmentsFilter.SerialNumber);
 
             if (equipmentsFilter.Status != null)
-                queryStringParam.Add("status", Enum.GetName(typeof(EquipmentStatus), ((int)equipmentsFilter.Status)));
+                queryStringParam.Add("status", Enum.GetName(typeof(EquipmentStatus), equipmentsFilter.Status));
 
             if (!string.IsNullOrEmpty(equipmentsFilter.AssignmentDate.ToString()))
                 queryStringParam.Add("assignmentDate", equipmentsFilter.AssignmentDate.ToString());

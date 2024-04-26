@@ -1,0 +1,102 @@
+﻿@if (PageCount > 1)
+{
+    //Variables for start and finish pages
+    var adjusted = Math.Min(VisiblePages, PageCount);
+    var half = (int)Math.Floor(adjusted / 2d);
+    var start = Math.Max(CurrentPage - half, 1);
+    var finish = Math.Min(CurrentPage + half, PageCount);
+    if (start <= 1) { start = 1; finish = adjusted; }
+    if (finish >= PageCount) { start = PageCount - adjusted; }
+    if (start <= 1) { start = 1; }
+    var hasPrevious = CurrentPage > 1 && PageCount > 1;
+    var hasNext = CurrentPage < PageCount;
+
+    <nav>
+        <ul class="pagination justify-content-center">
+            @if (ShowFirstLast)
+            {
+                if (CurrentPage == 1)
+                {
+                    <li class="page-item disabled noselect"><a class="page-link sgs-button-first-last" tabindex="-1"><span aria-hidden="true" class="sgs-button">@FirstText</span><span class="sr-only sgs-button">Go to first page</span></a></li>
+                }
+                else
+                {
+                    <li class="page-item noselect"><a class="page-link sort-link sgs-button-first-last" @onclick="@(() => PagerButtonClicked(1))"><span aria-hidden="true" class="sgs-button">@FirstText</span><span class="sr-only sgs-button">Go to first page</span></a></li>
+                }
+            }
+            @if (hasPrevious)
+            {
+                <li class="page-item noselect"><a class="page-link sort-link sgs-button" @onclick="@(() => PagerButtonClicked(CurrentPage - 1))"><span aria-hidden="true" class="sgs-button">@PreviousText</span><span class="sr-only sgs-button">Go to previous page</span></a></li>
+            }
+            else
+            {
+                <li class="page-item disabled noselect"><a class="page-link sgs-button-first-last" tabindex="-1"><span aria-hidden="true" class="sgs-button">@PreviousText</span><span class="sr-only sgs-button">Go to previous page</span></a></li>
+            }
+
+            @if (ShowPageNumbers)
+            {
+                for (var i = start; i <= finish; i++)
+                {
+                    var currentIndex = i;
+                    if (i == CurrentPage)
+                    {
+                        <li class="page-item active noselect"><a class="page-link sgs-button">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item noselect"><a class="page-link  sgs-button" @onclick="@(() => PagerButtonClicked(currentIndex))">@currentIndex</a></li>
+                    }
+                }
+            }
+
+            @if (hasNext)
+            {
+                <li class="page-item"><a class="page-link sort-link sgs-button" @onclick="@(() => PagerButtonClicked(CurrentPage + 1))"><span aria-hidden="true" class="sgs-button">@NextText</span><span class="sr-only sgs-button">Go to next page</span></a></li>
+            }
+            else
+            {
+                <li class="page-item disabled"><a class="page-link sgs-button" href="#" tabindex="-1"><span aria-hidden="true" class="sgs-button">@NextText</span><span class="sr-only sgs-button">Go to next page</span></a></li>
+            }
+
+            @if (ShowFirstLast)
+            {
+                if (CurrentPage == PageCount)
+                {
+                    <li class="page-item disabled "><a class="page-link sgs-button" href="#" tabindex="-1"><span aria-hidden="true" class="sgs-button">@LastText</span><span class="sr-only sgs-button">>Go to last page</span></a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link sort-link sgs-button" @onclick="@(() => PagerButtonClicked(PageCount))"><span aria-hidden="true" class="sgs-button">@LastText</span><span class="sr-only sgs-button">Go to last page</span></a></li>
+                }
+            }
+        </ul>
+    </nav>
+}
+
+@code {
+
+    [Parameter] public int PageCount { get; set; }
+
+    [Parameter] public int CurrentPage { get; set; }
+
+    [Parameter] public Func<int, Task> OnPageChanged { get; set; } = null;
+
+    [Parameter] public bool ShowFirstLast { get; set; } = false;
+
+    [Parameter] public bool ShowPageNumbers { get; set; } = true;
+
+    [Parameter] public string FirstText { get; set; } = "First";
+
+    [Parameter] public string LastText { get; set; } = "Last";
+
+    [Parameter] public string PreviousText { get; set; } = "Previous";
+
+    [Parameter] public string NextText { get; set; } = "Next";
+
+    [Parameter] public int VisiblePages { get; set; } = 4;
+
+    private void PagerButtonClicked(int page)
+    {
+        OnPageChanged?.Invoke(page);
+    }
+}

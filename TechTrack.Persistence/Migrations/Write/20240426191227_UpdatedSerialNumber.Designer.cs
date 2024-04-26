@@ -3,21 +3,24 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechTrack.Persistence.DatabaseContext;
 
 #nullable disable
 
-namespace TechTrack.Persistence.Migrations.Read
+namespace TechTrack.Persistence.Migrations.Write
 {
-    [DbContext(typeof(ReadDbContext))]
-    partial class ReadDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(WriteDbContext))]
+    [Migration("20240426191227_UpdatedSerialNumber")]
+    partial class UpdatedSerialNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("read")
+                .HasDefaultSchema("write")
                 .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
@@ -62,7 +65,7 @@ namespace TechTrack.Persistence.Migrations.Read
 
                     b.HasIndex("AssignedToUserId");
 
-                    b.ToTable("Equipments", "read");
+                    b.ToTable("Equipments", "write");
                 });
 
             modelBuilder.Entity("TechTrack.Domain.Models.User", b =>
@@ -73,22 +76,19 @@ namespace TechTrack.Persistence.Migrations.Read
 
                     b.Property<string>("Department")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", "read");
+                    b.ToTable("Users", "write");
                 });
 
             modelBuilder.Entity("TechTrack.Domain.Models.Equipment", b =>

@@ -6,6 +6,11 @@ namespace TechTrack.Persistence.DatabaseContext
 {
     public class ReadDbContext : DbContext
     {
+        public ReadDbContext()
+        {
+
+        }
+
         public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
         {
             

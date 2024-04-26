@@ -1,5 +1,10 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.AspNetCore.WebUtilities;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using TechTrack.Common.Interfaces.HttpClients;
+using TechTrack.Common.Pagination;
+using TechTrack.Common.ViewModel.Equipments;
 using TechTrack.Common.ViewModel.Users;
 
 namespace Techtrack.Ui.Client.Services
@@ -15,8 +20,24 @@ namespace Techtrack.Ui.Client.Services
 
         public async Task<List<UserWithEquipmentsVm>> GetUsersWithEquipmentsAsync()
         {
-            var usersWithEquipments = await _httpClient.GetFromJsonAsync<List<UserWithEquipmentsVm>>("api/users/with-equipments");
-            return usersWithEquipments ?? new List<UserWithEquipmentsVm>();
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            options.Converters.Add(new JsonStringEnumConverter());
+
+            var response = await _httpClient.GetAsync("api/v1/users/with-equipments");
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+
+            var users = JsonSerializer.Deserialize<List<UserWithEquipmentsVm>>(content, options);
+
+            return users ?? [];
         }
     }
 }

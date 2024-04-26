@@ -44,7 +44,6 @@ namespace TechTrack.Persistence.Migrations.Write
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SerialNumber")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 

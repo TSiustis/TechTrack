@@ -43,6 +43,19 @@ public class Program
         builder.Services.AddScoped<IDomainEventService, DomainEventService>();
         builder.Services.AddApiVersioning();
 
+        string? origins = "origins";
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(origins,
+                                  policy =>
+                                  {
+                                      policy.AllowAnyOrigin()
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                                  });
+        });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -62,6 +75,8 @@ public class Program
         {
             await DataSeeder.SeedDataAsync(app.Services);
         }
+        
+        app.UseCors(origins);
 
         app.Run();
     }

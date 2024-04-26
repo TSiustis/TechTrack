@@ -8,7 +8,7 @@ namespace TechTrack.Domain.Enums
         Available,
         [Description("Assigned")]
         Assigned,
-        [Description("UnderMaintenance")]
+        [Description("Under Maintenance")]
         UnderMaintenance,
         [Description("Retired")]
         Retired

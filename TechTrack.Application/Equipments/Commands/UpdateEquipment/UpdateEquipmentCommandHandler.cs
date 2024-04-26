@@ -28,6 +28,8 @@ namespace TechTrack.Application.Equipments.Commands.UpdateEquipment
 
             _mapper.Map(request.Equipment, equipment);
 
+            equipment.Id = request.Id;
+
             equipment.DomainEvents.Add(new EquipmentUpdated(equipment));
 
             _equipmentRepository.Update(equipment);

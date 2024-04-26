@@ -2,12 +2,12 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Techtrack.Ui;
-using Techtrack.Ui.Client.Pages;
+using Techtrack.Ui.Client.Components.Pages;
+using Techtrack.Ui.Client.Components.Pages.Equipments;
 using Techtrack.Ui.Client.Services;
 using Techtrack.Ui.Components;
 using Techtrack.Ui.Components.Account;
 using Techtrack.Ui.Data;
-using TechTrack.Application.Interfaces.Users;
 using TechTrack.Common.Interfaces.HttpClients;
 using IUserHttpClientService = TechTrack.Common.Interfaces.HttpClients.IUserHttpClientService;
 
@@ -36,10 +36,6 @@ builder.Services.AddScoped<IEquipmentsHttpClientService>(sp =>
     var httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7212/") };
     return new EquipmentsHttpClientService(httpClient);
 });
-
-
-
-
 
 builder.Services.AddAuthentication(options =>
     {
@@ -83,7 +79,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Counter).Assembly);
+    .AddAdditionalAssemblies(typeof(Equipment).Assembly);
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();

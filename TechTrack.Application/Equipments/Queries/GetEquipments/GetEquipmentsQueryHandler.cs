@@ -62,6 +62,7 @@ namespace TechTrack.Application.Equipments.Queries.GetEquipments
         {
             return PredicateBuilder.True<Equipment>()
                 .HasGuidEqualTo(filterOn.Filter.Id)
+                .AndStatusIsNotRetired()
                 .AndNameEqualTo(filterOn.Filter.Name)
                 .AndTypeEqualTo(filterOn.Filter.Type)
                 .AndSerialNumberEqualTo(filterOn.Filter.SerialNumber)

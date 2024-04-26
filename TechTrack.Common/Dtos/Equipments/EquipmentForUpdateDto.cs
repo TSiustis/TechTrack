@@ -4,7 +4,7 @@ namespace TechTrack.Common.Dtos.Equipments
 {
     public class EquipmentForUpdateDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? Type { get; set; }
         public string? SerialNumber { get; set; }

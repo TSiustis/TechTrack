@@ -13,6 +13,33 @@ namespace TechTrack.Api
             var readDbContext = services.GetRequiredService<ReadDbContext>();
             var writeDbContext = services.GetRequiredService<WriteDbContext>();
 
+            if (readDbContext.Users.Any())
+            {
+                return;
+            }
+
+            if (writeDbContext.Users.Any())
+            {
+                return;
+            }
+
+            var users = new User[]
+            {
+                new() {
+                    Id = new Guid("46187ce0-5637-4435-805a-48c59ebface6"),
+                    Name = "John Doe",
+                    Email = "john@example.com",
+                    Department = "IT"
+                },
+                new()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Jane Smith",
+                    Email = "jane@example.com",
+                    Department = "HR"
+                }
+            };
+
             if (readDbContext.Equipments.Any())
             {
                 return;
@@ -22,6 +49,12 @@ namespace TechTrack.Api
             {
                 return;
             }
+
+            await readDbContext.Users.AddRangeAsync(users);
+            await readDbContext.SaveChangesAsync();
+
+            await writeDbContext.Users.AddRangeAsync(users);
+            await writeDbContext.SaveChangesAsync();
 
             var equipments = new Equipment[]
             {
@@ -112,29 +145,7 @@ namespace TechTrack.Api
 
             await writeDbContext.Equipments.AddRangeAsync(equipments);
             await writeDbContext.SaveChangesAsync();
-
-            var users = new User[]
-            {
-        new() {
-            Id = new Guid("46187ce0-5637-4435-805a-48c59ebface6"),
-            Name = "John Doe",
-            Email = "john@example.com",
-            Department = "IT"
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            Name = "Jane Smith",
-            Email = "jane@example.com",
-            Department = "HR"
-        }
-            };
-
-            await readDbContext.Users.AddRangeAsync(users);
-            await readDbContext.SaveChangesAsync();
-
-            await writeDbContext.Users.AddRangeAsync(users);
-            await writeDbContext.SaveChangesAsync();
+            
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
 using TechTrack.Domain.Enums;
 using TechTrack.Domain.Models;
 
@@ -17,7 +16,6 @@ namespace TechTrack.Persistence.Configurations
                 .HasMaxLength(256);
 
             builder.Property(e => e.SerialNumber)
-                .IsRequired()
                 .HasMaxLength(256);
 
             builder.Property(e => e.Type)
