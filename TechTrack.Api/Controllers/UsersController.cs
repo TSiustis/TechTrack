@@ -1,6 +1,8 @@
 ﻿using global::TechTrack.Common.ViewModel.Users;
 using Microsoft.AspNetCore.Mvc;
+using TechTrack.Application.Users.Commands;
 using TechTrack.Application.Users.Queries;
+using TechTrack.Common.Dtos.Users;
 
 namespace TechTrack.Api.Controllers
 {
@@ -18,6 +20,16 @@ namespace TechTrack.Api.Controllers
             var userWithquipments = await Mediator.Send(new GetUsersWithEquipmentsQuery());
 
             return Ok(userWithquipments);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] UserForCreationDto createUserDto)
+        {
+            var command = new CreateUserCommand(createUserDto);
+
+            var userId = await Mediator.Send(command);
+
+            return Ok(userId);
         }
     }
 }

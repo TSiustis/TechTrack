@@ -16,7 +16,7 @@ namespace TechTrack.Api.Controllers
         /// Gets the list of equipments for specified filters.
         /// </summary>
         /// <param name="equipmentsFilter">Additional search filters to be applied.</param>
-        /// <returns>Paginated list of tenders.</returns>
+        /// <returns>Paginated list of equipments.</returns>
         [HttpGet("equipments")]
         [ProducesResponseType(typeof(PaginatedResult<EquipmentOutputVm>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

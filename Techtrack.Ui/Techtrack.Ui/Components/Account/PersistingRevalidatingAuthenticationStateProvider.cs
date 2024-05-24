@@ -87,13 +87,15 @@ internal sealed class PersistingRevalidatingAuthenticationStateProvider : Revali
         {
             var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;
             var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;
+            var name = principal.FindFirst(options.ClaimsIdentity.UserNameClaimType)?.Value;
 
-            if (userId != null && email != null)
+            if (userId != null && email != null && name != null)
             {
                 state.PersistAsJson(nameof(UserInfo), new UserInfo
                 {
                     UserId = userId,
                     Email = email,
+                    Name = name
                 });
             }
         }

@@ -2,6 +2,8 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using TechTrack.Common.Dtos.Equipments;
+using TechTrack.Common.Dtos.Users;
 using TechTrack.Common.Interfaces.HttpClients;
 using TechTrack.Common.Pagination;
 using TechTrack.Common.ViewModel.Equipments;
@@ -16,6 +18,12 @@ namespace Techtrack.Ui.Client.Services
         public UsersHttpClientService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+        }
+
+        public async Task AddUserAsync(UserForCreationDto userForCreationDto)
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/v1/users", userForCreationDto);
+            response.EnsureSuccessStatusCode();
         }
 
         public async Task<List<UserWithEquipmentsVm>> GetUsersWithEquipmentsAsync()

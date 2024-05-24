@@ -26,6 +26,7 @@ public class Program
 
         builder.Services.AddScoped<IEquipmentReadRepository, EquipmentReadRepository>();
         builder.Services.AddScoped<IEquipmentWriteRepository, EquipmentWriteRepository>();
+        builder.Services.AddScoped<IUsersWriteRepository, UsersWriteRepository>();
         builder.Services.AddScoped<IUsersReadRepository, UsersReadRepository>();
 
         builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);

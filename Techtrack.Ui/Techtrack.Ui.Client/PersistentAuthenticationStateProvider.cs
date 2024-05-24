@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
+using TechTrack.Common.Dtos.Users;
+using TechTrack.Common.Interfaces.HttpClients;
 
 namespace Techtrack.Ui.Client;
 // This is a client-side AuthenticationStateProvider that determines the user's authentication state by
@@ -18,8 +20,12 @@ internal class PersistentAuthenticationStateProvider : AuthenticationStateProvid
 
     private readonly Task<AuthenticationState> authenticationStateTask = defaultUnauthenticatedTask;
 
-    public PersistentAuthenticationStateProvider(PersistentComponentState state)
+    private readonly IUserHttpClientService _clientService;
+
+    public PersistentAuthenticationStateProvider(PersistentComponentState state, IUserHttpClientService clientService)
     {
+        _clientService = clientService;
+
         if (!state.TryTakeFromJson<UserInfo>(nameof(UserInfo), out var userInfo) || userInfo is null)
         {
             return;
@@ -27,12 +33,18 @@ internal class PersistentAuthenticationStateProvider : AuthenticationStateProvid
 
         Claim[] claims = [
             new Claim(ClaimTypes.NameIdentifier, userInfo.UserId),
-            new Claim(ClaimTypes.Name, userInfo.Email),
+            new Claim(ClaimTypes.Name, userInfo.Name),
             new Claim(ClaimTypes.Email, userInfo.Email)];
 
         authenticationStateTask = Task.FromResult(
             new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(claims,
                 authenticationType: nameof(PersistentAuthenticationStateProvider)))));
+
+        _clientService.AddUserAsync(new UserForCreationDto
+        {
+            Name = userInfo.Name,
+            Email = userInfo.Email,
+        });
     }
 
     public override Task<AuthenticationState> GetAuthenticationStateAsync() => authenticationStateTask;

@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechTrack.Application\TechTrack.Application.csproj" />
-    <ProjectReference Include="..\TechTrack.Infrastructure\TechTrack.Infrastructure.csproj" />
     <ProjectReference Include="..\TechTrack.Persistence\TechTrack.Persistence.csproj" />
   </ItemGroup>
 
